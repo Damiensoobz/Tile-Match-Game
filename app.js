@@ -1,51 +1,51 @@
 const cardArray = [
     {
         name: 'fries',
-        image: 'images\fries.png',
+        image: 'images/fries.png',
     },
     {
         name: 'cheeseburger',
-        image: 'images\cheeseburger.png'
+        image: 'images/cheeseburger.png'
     },
     {
         name: 'hotdog',
-        image: 'images\hotdog.png'
+        image: 'images/hotdog.png'
     },
     {
         name: 'ice-cream',
-        image: 'images\ice-cream.png'
+        image: 'images/ice-cream.png'
     },
     {
         name: 'milkshake',
-        image: 'images\milkshake.png'
+        image: 'images/milkshake.png'
     },
     {
         name: 'pizza',
-        image: 'images\pizza.png'
+        image: 'images/pizza.png'
     },
     {
         name: 'fries',
-        image: 'images\fries.png',
+        image: 'images/fries.png',
     },
     {
         name: 'cheeseburger',
-        image: 'images\cheeseburger.png'
+        image: 'images/cheeseburger.png'
     },
     {
         name: 'hotdog',
-        image: 'images\hotdog.png'
+        image: 'images/hotdog.png'
     },
     {
         name: 'ice-cream',
-        image: 'images\ice-cream.png'
+        image: 'images/ice-cream.png'
     },
     {
         name: 'milkshake',
-        image: 'images\milkshake.png'
+        image: 'images/milkshake.png'
     },
     {
         name: 'pizza',
-        image: 'images\pizza.png'
+        image: 'images/pizza.png'
     }
 ];
 
@@ -55,7 +55,7 @@ const gridDisplay = document.querySelector('#grid') /* looks through the documen
 function createBoard() {
     for (let i = 0; i < 10; i++) {
         const card = document.createElement('img');
-        card.setAttribute('src', 'images\blank.png');
+        card.setAttribute('src', 'images/blank.png');
         card.setAttribute('data-id', i);
         gridDisplay.append(card);
     }
