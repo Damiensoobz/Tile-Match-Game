@@ -16,9 +16,13 @@ img {
   }
 
 #grid {
-    width: 400x;
-    height: 300px;
+    
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
 
+#grid img {
+    max-width: 100%;
 }
