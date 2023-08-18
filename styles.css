@@ -16,10 +16,9 @@ img {
   }
 
 #grid {
-    
+    width: 400x;
+    height: 300px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border: solid;
+    flex-wrap: wrap;
 
 }
