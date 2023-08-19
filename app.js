@@ -51,8 +51,9 @@ const cardArray = [
 
 cardArray.sort(() => 0.5 - Math.random()); /* Randomly sorts the array */
 const gridDisplay = document.querySelector('#grid') /* looks through the document for the specified element */
-const cardsChosen = [];
-const cardsChosenIds = [];
+let cardsChosen = [];
+let cardsChosenIds = [];
+const cardsWon = [];
 
 function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
@@ -72,8 +73,19 @@ function checkMatch() {
     console.log("Check for a match!");
     if (cardsChosen[0] === cardsChosen[1]) {
         alert('You found a match!');
+        cards[cardsChosenIds[0]].setAttribute('src', 'images/white.png');
+        cards[cardsChosenIds[1]].setAttribute('src', 'images/white.png');
+        cards[cardsChosenIds[0]].removeEventListener('click', flipCard);
+        cards[cardsChosenIds[1]].removeEventListener('click', flipCard);
+        cardsWon.push(cardsChosen);
         
     }
+    else {
+        cards[cardsChosenIds[0]].setAttribute('src', 'images/blank.png');
+        cards[cardsChosenIds[1]].setAttribute('src', 'images/blank.png');
+    };
+    cardsChosen = [];
+    cardsChosenIds = [];
 };
 
 function flipCard() {
@@ -81,9 +93,11 @@ function flipCard() {
     
     cardsChosen.push(cardArray[cardId].name);
     cardsChosenIds.push(cardId);
+    console.log(cardsChosen);
+    console.log(cardsChosenIds);
     this.setAttribute('src', cardArray[cardId].image);
 
     if (cardsChosen.length === 2) {
-        setTimeout(checkMatch, 500); /* Calls a function after a certain amount of time has passed */
+        setTimeout(checkMatch, 250); /* Calls a function after a certain amount of time has passed */
     };
 };
