@@ -51,6 +51,7 @@ const cardArray = [
 
 cardArray.sort(() => 0.5 - Math.random()); /* Randomly sorts the array */
 const gridDisplay = document.querySelector('#grid') /* looks through the document for the specified element */
+const resultDisplay = document.querySelector('#result')
 let cardsChosen = [];
 let cardsChosenIds = [];
 const cardsWon = [];
@@ -70,22 +71,35 @@ createBoard();
 function checkMatch() {
     const cards = document.querySelectorAll('img');
 
-    console.log("Check for a match!");
-    if (cardsChosen[0] === cardsChosen[1]) {
-        alert('You found a match!');
+    if (cardsChosenIds[0] == cardsChosenIds[1]) {
+        cards[cardsChosenIds[0]].setAttribute('src', 'images/blank.png');
+        cards[cardsChosenIds[1]].setAttribute('src', 'images/blank.png');
+        alert('You have clicked the same tile!');
+    };
+
+    if (cardsChosen[0] == cardsChosen[1]) {
+        
         cards[cardsChosenIds[0]].setAttribute('src', 'images/white.png');
         cards[cardsChosenIds[1]].setAttribute('src', 'images/white.png');
         cards[cardsChosenIds[0]].removeEventListener('click', flipCard);
         cards[cardsChosenIds[1]].removeEventListener('click', flipCard);
         cardsWon.push(cardsChosen);
+        alert('You found a match!');
         
     }
     else {
         cards[cardsChosenIds[0]].setAttribute('src', 'images/blank.png');
         cards[cardsChosenIds[1]].setAttribute('src', 'images/blank.png');
+        alert('No match - try again!');
     };
+
+    resultDisplay.textContent = cardsWon.length;
     cardsChosen = [];
     cardsChosenIds = [];
+
+    if (cardsWon.length == cardArray.length/2) {
+        resultDisplay.textContent = 'Congratulations, you found all matches!';
+    };
 };
 
 function flipCard() {
